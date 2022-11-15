@@ -12,26 +12,62 @@ const productSchema = mongoose.Schema({
         minLength: [5, "name must be at least 5 character"],
         maxLength: [100, "name must be in 100 character"]
     },
-    shop: {
-        type: Boolean,
-        required: [true, "please make shop true"],
-    },
     brand: {
         type: String,
         required: [true, "please provide a brand name"],
         trim: true,
     },
+    description: {
+        type: String,
+        require: [true, "please add a description for this product"]
+    },
     price: {
         type: Number,
         required: [true, "please provide price for this product"],
+    },
+    productQuantity: {
+        type: Number,
+        required: [true, "please add a available quantity"]
     },
     minimumOrder: {
         type: Number,
         required: [true, "please add minimum order"],
     },
-    description: {
+    category: {
         type: String,
-        require: [true, "please add a description for this product"]
+        required: true,
+    },
+    feature1: {
+        type: String,
+        required: true
+    },
+    feature2: {
+        type: String,
+        required: true
+    },
+    feature3: {
+        type: String,
+        required: true
+    },
+    feature4: {
+        type: String,
+        required: true
+    },
+    feature5: {
+        type: String,
+        required: true
+    },
+    feature6: {
+        type: String,
+        required: true
+    },
+    feature7: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: [true, "please add a product image"]
     },
     snapshot0: {
         type: String,
@@ -44,22 +80,6 @@ const productSchema = mongoose.Schema({
     snapshot2: {
         type: String,
         required: [true, "please add a product snapshot"]
-    },
-    image: {
-        type: String,
-        required: [true, "please add a product image"]
-    },
-    status: {
-        type: String,
-        required: [true, "please add a status"]
-    },
-    categories: {
-        type: String,
-        required: true,
-    },
-    availableQuantity: {
-        type: Number,
-        required: [true, "please add a available quantity"]
     }
 },
     {
