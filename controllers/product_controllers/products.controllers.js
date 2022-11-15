@@ -20,22 +20,46 @@ module.exports.getAllProducts = async (req, res, next) => {
     }
 };
 
+module.exports.getProductById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const result = await ProductModel.findById(id);
+
+
+        res.status(200).json({
+            success: true,
+            message: "Success",
+            data: result
+        })
+
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: "data not found",
+            error: error.message
+        })
+    };
+};
+
 module.exports.postAProduct = async (req, res, next) => {
     try {
+
+        console.log(req.body)
 
         const product = new ProductModel(req.body);
         const result = await product.save();
 
         res.status(200).json({
             success: true,
-            message: "data get successfully",
+            message: "data post successfully",
             data: result
         })
 
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "data not find",
+            message: "data not post",
             error: error.message
         })
     }

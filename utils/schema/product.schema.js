@@ -65,7 +65,7 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    image: {
+    productImage: {
         type: String,
         required: [true, "please add a product image"]
     },

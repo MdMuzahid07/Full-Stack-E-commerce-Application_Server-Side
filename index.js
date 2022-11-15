@@ -19,9 +19,9 @@ databaseConnection();
 app.use("/api/v1/products", productsRouter);
 
 app.get("/", (req, res, next) => {
-    res.send("server running?")
+    res.send("server running?");
 });
 
 app.listen(port, () => {
-    console.log(`server running on port: ${port}`)
+    console.log(`server running on port: ${port}`);
 });
