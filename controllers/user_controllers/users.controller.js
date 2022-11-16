@@ -1,8 +1,8 @@
-const ProductModel = require("../../models/product.model");
+const UserModel = require("../../models/user.model");
 
-module.exports.getAllProducts = async (req, res, next) => {
+module.exports.getAllUsers = async (req, res, next) => {
     try {
-        const result = await ProductModel.find({});
+        const result = await UserModel.find({});
 
 
         res.status(200).json({
@@ -20,33 +20,12 @@ module.exports.getAllProducts = async (req, res, next) => {
     }
 };
 
-module.exports.getProductById = async (req, res, next) => {
-    try {
-        const { id } = req.params;
 
-        const result = await ProductModel.findById(id);
-
-
-        res.status(200).json({
-            success: true,
-            message: "Success",
-            data: result
-        })
-
-    } catch (error) {
-        res.status(400).json({
-            success: false,
-            message: "data not found",
-            error: error.message
-        })
-    };
-};
-
-module.exports.postAProduct = async (req, res, next) => {
+module.exports.createAUser = async (req, res, next) => {
     try {
 
-        const product = new ProductModel(req.body);
-        const result = await product.save();
+        const user = new UserModel(req.body);
+        const result = await user.save();
 
         res.status(200).json({
             success: true,
@@ -63,13 +42,14 @@ module.exports.postAProduct = async (req, res, next) => {
     }
 };
 
-module.exports.updateAProduct = async (req, res, next) => {
+
+module.exports.updateAUser = async (req, res, next) => {
     try {
         const { id } = req.params;
         const data = req.body;
         const filter = { _id: id };
 
-        const result = await ProductModel.findOneAndUpdate(filter, data);
+        const result = await UserModel.findOneAndUpdate(filter, data);
 
 
         res.status(200).json({
@@ -87,12 +67,13 @@ module.exports.updateAProduct = async (req, res, next) => {
     }
 };
 
-module.exports.deleteAProduct = async (req, res, next) => {
+
+module.exports.deleteAUser = async (req, res, next) => {
     try {
         const { id } = req.params;
         const query = { _id: id };
 
-        const result = await ProductModel.findOneAndDelete(query)
+        const result = await UserModel.findOneAndDelete(query)
 
 
         res.status(200).json({
