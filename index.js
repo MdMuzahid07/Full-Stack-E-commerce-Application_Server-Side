@@ -4,9 +4,12 @@ const cors = require('cors');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const databaseConnection = require('./utils/databaseConnection');
+const port = process.env.PORT || 5000;
+
+// router
 const productsRouter = require('./routes/productRoute_V1/products.route');
 const userRouter = require('./routes/usersRoute_V1/users.route');
-const port = process.env.PORT || 5000;
+const ordersRouter = require('./routes/orderRoute_V1/order.route');
 
 
 
@@ -22,6 +25,9 @@ app.use("/api/v1/products", productsRouter);
 
 // users API
 app.use("/api/v1/users", userRouter);
+
+// orders API
+app.use("/api/v1/orders", ordersRouter)
 
 
 app.get("/", (req, res, next) => {
