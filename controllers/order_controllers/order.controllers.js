@@ -70,7 +70,6 @@ module.exports.updateAOrder = async (req, res, next) => {
 
         const result = await setModelName.findOneAndUpdate(filter, data);
 
-
         res.status(200).json({
             success: true,
             message: "data get successfully",

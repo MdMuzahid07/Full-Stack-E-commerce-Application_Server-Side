@@ -8,7 +8,6 @@ const productSchema = mongoose.Schema({
         type: String,
         required: [true, "please provide a product name"],
         trim: true,
-        unique: [true, "name must be unique"],
         minLength: [5, "name must be at least 5 character"],
         maxLength: [100, "name must be in 100 character"]
     },
@@ -69,18 +68,6 @@ const productSchema = mongoose.Schema({
         type: String,
         required: [true, "please add a product image"]
     },
-    snapshot0: {
-        type: String,
-        required: [true, "please add a product snapshot"]
-    },
-    snapshot1: {
-        type: String,
-        required: [true, "please add a product snapshot"]
-    },
-    snapshot2: {
-        type: String,
-        required: [true, "please add a product snapshot"]
-    }
 },
     {
         timestamps: true
