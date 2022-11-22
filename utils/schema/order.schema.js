@@ -46,7 +46,11 @@ const orderSchema = mongoose.Schema({
         type: Number
     }
 
-});
+},
+    {
+        timestamps: true
+    }
+);
 
 
 module.exports = orderSchema;

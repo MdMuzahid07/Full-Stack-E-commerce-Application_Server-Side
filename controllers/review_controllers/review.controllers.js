@@ -1,7 +1,8 @@
+const ReviewModel = require("../../models/review.model");
 
 module.exports.getAllReviews = async (req, res, next) => {
     try {
-        const result = await setReviewModelName.find({});
+        const result = await ReviewModel.find({});
 
         res.status(200).json({
             success: true,
@@ -22,7 +23,7 @@ module.exports.getAllReviews = async (req, res, next) => {
 module.exports.postAReview = async (req, res, next) => {
     try {
 
-        const product = new setReviewModelName(req.body);
+        const product = new ReviewModel(req.body);
         const result = await product.save();
 
         res.status(200).json({
@@ -46,8 +47,7 @@ module.exports.deleteAReview = async (req, res, next) => {
         const { id } = req.params;
         const query = { _id: id };
 
-        const result = await setReviewModelName.findOneAndDelete(query)
-
+        const result = await ReviewModel.findOneAndDelete(query)
 
         res.status(200).json({
             success: true,
