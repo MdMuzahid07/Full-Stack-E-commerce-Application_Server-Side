@@ -1,7 +1,8 @@
+const OrderModel = require("../../models/order.model");
 
 module.exports.getAllOrders = async (req, res, next) => {
     try {
-        const result = await setModelName.find({});
+        const result = await OrderModel.find({});
 
 
         res.status(200).json({
@@ -23,7 +24,7 @@ module.exports.getOrderById = async (req, res, next) => {
     try {
         const { id } = req.params;
 
-        const result = await setModelName.findById(id);
+        const result = await OrderModel.findById(id);
 
 
         res.status(200).json({
@@ -44,7 +45,7 @@ module.exports.getOrderById = async (req, res, next) => {
 module.exports.createAOrder = async (req, res, next) => {
     try {
 
-        const product = new setModelName(req.body);
+        const product = new OrderModel(req.body);
         const result = await product.save();
 
         res.status(200).json({
@@ -68,7 +69,7 @@ module.exports.updateAOrder = async (req, res, next) => {
         const data = req.body;
         const filter = { _id: id };
 
-        const result = await setModelName.findOneAndUpdate(filter, data);
+        const result = await OrderModel.findOneAndUpdate(filter, data);
 
         res.status(200).json({
             success: true,
@@ -90,7 +91,7 @@ module.exports.deleteAOrder = async (req, res, next) => {
         const { id } = req.params;
         const query = { _id: id };
 
-        const result = await setModelName.findOneAndDelete(query)
+        const result = await OrderModel.findOneAndDelete(query)
 
 
         res.status(200).json({
