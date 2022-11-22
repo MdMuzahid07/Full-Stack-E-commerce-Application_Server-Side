@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 const productsRouter = require('./routes/productRoute_V1/products.route');
 const userRouter = require('./routes/usersRoute_V1/users.route');
 const ordersRouter = require('./routes/orderRoute_V1/order.route');
+const reviewRouter = require('./routes/reviewRoute_V1/reviews.route');
 
 
 
@@ -30,7 +31,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/orders", ordersRouter);
 
 // reviews API
-app.use("/api/v1/reviews",);
+app.use("/api/v1/reviews", reviewRouter);
 
 
 app.get("/", (req, res, next) => {

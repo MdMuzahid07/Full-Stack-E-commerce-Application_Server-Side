@@ -1,14 +1,13 @@
 const express = require('express');
+const { getAllReviews, postAReview, deleteAReview } = require('../../controllers/review_controllers/review.controllers');
 const router = express.Router();
 
 router.route("/")
-    .get()
-    .post()
-    .patch()
-    .delete()
+    .get(getAllReviews)
+    .post(postAReview)
 
 router.route("/:id")
-    .get()
-    .post()
-    .patch()
-    .delete()
+    .delete(deleteAReview)
+
+
+module.exports = router;
