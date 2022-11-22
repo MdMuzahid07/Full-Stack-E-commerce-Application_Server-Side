@@ -27,7 +27,10 @@ app.use("/api/v1/products", productsRouter);
 app.use("/api/v1/users", userRouter);
 
 // orders API
-app.use("/api/v1/orders", ordersRouter)
+app.use("/api/v1/orders", ordersRouter);
+
+// reviews API
+app.use("/api/v1/reviews",);
 
 
 app.get("/", (req, res, next) => {
