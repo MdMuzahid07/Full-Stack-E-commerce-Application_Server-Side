@@ -2,8 +2,10 @@ const ProductModel = require("../../models/product.model");
 
 module.exports.getAllProducts = async (req, res, next) => {
     try {
-        const result = await ProductModel.find({});
 
+        const { page = 1, limit = 6 } = req.query;
+
+        const result = await ProductModel.find({}).limit(limit * 1).skip((page - 1) * limit);
 
         res.status(200).json({
             success: true,
