@@ -4,7 +4,6 @@ module.exports.getAllOrders = async (req, res, next) => {
     try {
         const result = await OrderModel.find({});
 
-
         res.status(200).json({
             success: true,
             message: "data get successfully",
@@ -25,7 +24,6 @@ module.exports.getOrderById = async (req, res, next) => {
         const { id } = req.params;
 
         const result = await OrderModel.findById(id);
-
 
         res.status(200).json({
             success: true,

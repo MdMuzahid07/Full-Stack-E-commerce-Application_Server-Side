@@ -3,7 +3,7 @@ const ProductModel = require("../../models/product.model");
 module.exports.getAllProducts = async (req, res, next) => {
     try {
 
-        const { page = 1, limit = 6 } = req.query;
+        const { page = 1, limit = 12 } = req.query;
 
         const result = await ProductModel.find({}).limit(limit * 1).skip((page - 1) * limit);
 
@@ -95,7 +95,6 @@ module.exports.deleteAProduct = async (req, res, next) => {
         const query = { _id: id };
 
         const result = await ProductModel.findOneAndDelete(query)
-
 
         res.status(200).json({
             success: true,
