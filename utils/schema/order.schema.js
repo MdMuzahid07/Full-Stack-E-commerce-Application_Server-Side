@@ -14,17 +14,13 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: [true, "customer email must be added"]
     },
-    fName: {
+    Name: {
         type: String,
-        required: true
-    },
-    lName: {
-        type: String,
-        required: true
+        required: [true, "last name must be added"]
     },
     contact: {
         type: Number,
-        required: true
+        required: [true, "contact number must be added"]
     },
     address: {
         type: String,
@@ -32,15 +28,15 @@ const orderSchema = mongoose.Schema({
     },
     city: {
         type: String,
-        required: true
+        required: [true, "city name must be added"]
     },
     state: {
         type: String,
-        required: true
+        required: [true, "state must be added"]
     },
     country: {
         type: String,
-        required: true
+        required: [true, "country must be added"]
     },
     zip: {
         type: Number
